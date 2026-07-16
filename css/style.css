@@ -1,1 +1,239 @@
-body{font-family:Arial;margin:0;padding:2rem;background:#f5f7fb}header{background:#0b5ed7;color:#fff;padding:1rem}button{padding:.6rem 1rem}.dark{background:#111;color:#fff}
+/* ==========================
+   HEADER
+========================== */
+
+header{
+
+position:sticky;
+
+top:0;
+
+z-index:999;
+
+background:white;
+
+box-shadow:
+
+0 2px 20px
+
+rgba(0,0,0,.08);
+
+}
+
+.container{
+
+max-width:1400px;
+
+margin:auto;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:18px 40px;
+
+}
+
+.logo a{
+
+display:flex;
+
+align-items:center;
+
+text-decoration:none;
+
+}
+
+.logo-icon{
+
+width:48px;
+
+height:48px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+border-radius:50%;
+
+background:#2563eb;
+
+color:white;
+
+font-size:26px;
+
+font-weight:bold;
+
+margin-right:12px;
+
+}
+
+.logo-text{
+
+font-size:28px;
+
+font-weight:700;
+
+color:#1f2937;
+
+}
+
+nav ul{
+
+display:flex;
+
+list-style:none;
+
+gap:32px;
+
+}
+
+nav a{
+
+text-decoration:none;
+
+font-weight:600;
+
+color:#374151;
+
+transition:.25s;
+
+}
+
+nav a:hover{
+
+color:#2563eb;
+
+}
+
+.active{
+
+color:#2563eb;
+
+}
+
+.nav-buttons{
+
+display:flex;
+
+gap:14px;
+
+align-items:center;
+
+}
+
+.search-btn,
+
+.theme-btn,
+
+.menu-btn{
+
+width:46px;
+
+height:46px;
+
+border:none;
+
+border-radius:50%;
+
+background:#eef4ff;
+
+cursor:pointer;
+
+font-size:18px;
+
+transition:.3s;
+
+}
+
+.search-btn:hover,
+
+.theme-btn:hover,
+
+.menu-btn:hover{
+
+background:#2563eb;
+
+color:white;
+
+transform:translateY(-3px);
+
+}
+
+.menu-btn{
+
+display:none;
+
+}
+
+.announcement{
+
+background:#2563eb;
+
+color:white;
+
+text-align:center;
+
+padding:12px;
+
+font-weight:600;
+
+letter-spacing:.4px;
+
+}
+body {
+  font-family: Arial;
+  margin: 0;
+  padding: 2rem;
+  background: #f5f7fb;
+}
+
+header {
+  background: #0b5ed7;
+  color: #fff;
+  padding: 1rem;
+}
+
+button {
+  padding: .6rem 1rem;
+}
+
+.dark {
+  background: #111;
+  color: #fff;
+}
+/* ==========================
+   MOBILE
+========================== */
+
+@media(max-width:1000px){
+
+nav{
+
+display:none;
+
+}
+
+.menu-btn{
+
+display:block;
+
+}
+
+.container{
+
+padding:18px;
+
+}
+
+.logo-text{
+
+font-size:22px;
+
+}
+
+}
