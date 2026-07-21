@@ -1,56 +1,101 @@
-document.addEventListener("DOMContentLoaded", () => {
+const practiceArea =
+document.getElementById("practiceArea");
 
-    const answers = [7, 14, 24, 55];
+const newButton =
+document.getElementById("newProblems");
 
-    const button = document.getElementById("checkQuiz");
+const checkButton =
+document.getElementById("checkProblems");
 
-    const reset = document.getElementById("resetQuiz");
+const score =
+document.getElementById("practiceScore");
 
-    const result = document.getElementById("quizResults");
+let answers=[];
 
-    button.addEventListener("click", () => {
+function generateProblems(){
 
-        let score = 0;
+practiceArea.innerHTML="";
 
-        answers.forEach((answer, index) => {
+answers=[];
 
-            const input = document.getElementById(`q${index + 1}`);
+for(let i=0;i<10;i++){
 
-            input.classList.remove("correct", "incorrect");
+const a=Math.floor(Math.random()*20)+1;
 
-            if (Number(input.value) === answer) {
+const b=Math.floor(Math.random()*20)+1;
 
-                score++;
+answers.push(a+b);
 
-                input.classList.add("correct");
+const row=document.createElement("div");
 
-            } else {
+row.className="practice-question";
 
-                input.classList.add("incorrect");
+row.innerHTML=`
 
-            }
+<label>
 
-        });
+${a} + ${b} =
 
-        result.textContent =
-            `You answered ${score} out of ${answers.length} correctly.`;
+</label>
 
-    });
+<input
+type="number">
 
-    reset.addEventListener("click", () => {
+`;
 
-        answers.forEach((_, index) => {
+practiceArea.appendChild(row);
 
-            const input = document.getElementById(`q${index + 1}`);
+}
 
-            input.value = "";
+score.textContent="";
 
-            input.classList.remove("correct", "incorrect");
+}
 
-        });
+function checkProblems(){
 
-        result.textContent = "";
+const inputs=
+practiceArea.querySelectorAll("input");
 
-    });
+let correct=0;
+
+inputs.forEach((input,index)=>{
+
+input.classList.remove(
+"correct",
+"incorrect"
+);
+
+if(Number(input.value)
+===answers[index]){
+
+correct++;
+
+input.classList.add("correct");
+
+}else{
+
+input.classList.add("incorrect");
+
+}
 
 });
+
+score.textContent=
+
+`Score:
+
+${correct}
+
+/
+
+${answers.length}`;
+
+}
+
+newButton.onclick=
+generateProblems;
+
+checkButton.onclick=
+checkProblems;
+
+generateProblems();
